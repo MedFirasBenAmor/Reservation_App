@@ -1,0 +1,39 @@
+{% extends 'reservationapp/base.html' %}
+
+{% block content %}
+<div class="bg-img">
+    <div class="content" style="background: rgba(255, 255, 255, 0.9); padding: 30px; border-radius: 10px; width: 80%; margin: 20px auto;">
+        <h2 style="color: #333; text-align: center; margin-bottom: 25px;">My Reservations</h2>
+        
+        <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; background: white;">
+                <thead>
+                    <tr style="background: #2c3e50; color: white;">
+                        <th style="padding: 12px; text-align: left;">Date</th>
+                        <th style="padding: 12px; text-align: left;">Time</th>
+                        <th style="padding: 12px; text-align: left;">Guests</th>
+                        <th style="padding: 12px; text-align: left;">Special Requests</th>
+                        <th style="padding: 12px; text-align: left;">Status</th>
+                        <th style="padding: 12px; text-align: left;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for reservation in reservations %}
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 12px;">{{ reservation.date }}</td>
+                        <td style="padding: 12px;">{{ reservation.time }}</td>
+                        <td style="padding: 12px;">{{ reservation.guests }}</td>
+                        <td style="padding: 12px;">{{ reservation.special_requests }}</td>
+                        <td style="padding: 12px;">{{ reservation.status }}</td>
+                        <td style="padding: 12px;">
+                            <a href="#" style="color: #2c3e50;">Edit</a> |
+                            <a href="#" style="color: #e74c3c;">Cancel</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
